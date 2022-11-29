@@ -1,0 +1,33 @@
+{
+  "name": "todo-api",
+  "version": "1.0.0",
+  "description": "api de prueba para tareas",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicccccolas/todonode.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "todo",
+    "api"
+  ],
+  "author": "Nicolas Pantoja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nicccccolas/todonode/issues"
+  },
+  "homepage": "https://github.com/Nicccccolas/todonode#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
