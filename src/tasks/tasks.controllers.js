@@ -1,5 +1,8 @@
 //? Este archivo va a manejar todo lo relacionado a acciones de la base de datos de toDo's
 
+const Tasks = require('../models/task.model')
+
+
 const toDoDB = []
 //? ToDo
 //* {
@@ -11,26 +14,32 @@ const toDoDB = []
 
 let id = 1
 
-const findAllToDos = () => {
+
+const findAllToDos = async() => {
   //? Esta funcion debe traer todos los ToDo's
-  return toDoDB
+  const data = await Tasks.findAll()
+  return data
 }
 
-const findToDoById = (id) => {
+const findToDoById = async (id) => {
   //? Esta funcion debe retornar un ToDo por el id
-  const todo = toDoDB.find(item => item.id == id)
+  
+  // ? Sirven para hacer comparacion
+  // ? const todo = await Tasks.findByPk(id)
+  const todo = await Tasks.findOne({
+    where: {
+      id: id
+    }
+  })
   return todo
 }
 
-const createToDo = (obj) => {
+const createToDo = async (obj) => {
   //? Esta funcion debe crear un nuevo ToDo en mi base de datos y retornar el ToDo creado
-  const newToDo = {
-    id: id++,
+  const newToDo = await Tasks.create({
     title: obj.title, 
     description: obj.description, 
-    is_completed: false
-  }
-  toDoDB.push(newToDo)
+  })
   return newToDo
 }
 
